@@ -36,18 +36,18 @@ func main() {
 
 ## And? 
 
-    minikomi•~» cat chainytest.go | go run chainytest | sort | uniq -c | go run chainytest.go
-    * - - *       4 * - - * 
-    * - - *       1 * - - * )
-    * - - *       3 * - - * }
-    * - - *       1 * - - *         "github.com/minikomi/chainy"
-    * - - *       1 * - - *         chainy.MakeChain(through, through2, through2, through)
-    * - - *       1 * - - * func main() {
-    * - - *       1 * - - * func through2(s string) string {
-    * - - *       1 * - - * func through(s string) string {
-    * - - *       1 * - - * import (
-    * - - *       1 * - - * package main
-    * - - *       1 * - - *         return "- " + s
-    * - - *       1 * - - *         return "* " + s
+        minikomi•~» cat chainytest.go | go run chainytest.go | sort | uniq -c | go run chainytest.go
+        * - - *       4 * - - * 
+        * - - *       1 * - - * )
+        * - - *       3 * - - * }
+        * - - *       1 * - - *   "chainy"
+        * - - *       1 * - - *         chainy.MakeChain(through, through2, through2, through)
+        * - - *       1 * - - * func main() {
+        * - - *       1 * - - * func through2(s string) string {
+        * - - *       1 * - - * func through(s string) string {
+        * - - *       1 * - - * import (
+        * - - *       1 * - - * package main
+        * - - *       1 * - - *         return "- " + s
+        * - - *       1 * - - *         return "* " + s
 
 :bowtie:
