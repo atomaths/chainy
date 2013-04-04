@@ -6,37 +6,33 @@ import (
 	"os"
 )
 
-func makeLink(inCh <-chan string, outCh chan<- string, f func(string) string) {
-	for {
-		s := <-inCh
-		outCh <- f(s)
-	}
-}
-
 func MakeChain(funcs ...func(string) string) {
-	var inCh, outCh chan string
-
-	stdInCh := make(chan string)
-	inCh = stdInCh
-
-	for _, f := range funcs {
-		outCh = make(chan string)
-		go makeLink(inCh, outCh, f)
-		inCh = outCh
-	}
-
 	r := bufio.NewReader(os.Stdin)
+	final := make(chan error)
+	outCh := make(chan string)
 	go (func() {
 		for {
 			line, err := r.ReadString('\n')
-			if err == io.EOF {
-				os.Exit(0)
+			if err != nil {
+				final <- err
+				return
 			}
-			stdInCh <- line
+			for _, f := range funcs {
+				line = f(line)
+			}
+			outCh <- line
 		}
 	})()
 
 	for {
-		io.WriteString(os.Stdout, <-outCh)
+		select {
+		case s := <-outCh:
+			io.WriteString(os.Stdout, s)
+    case err := <-final:
+			if err == io.EOF {
+				return
+			}
+			panic(err)
+		}
 	}
 }
