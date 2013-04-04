@@ -34,13 +34,9 @@ func main() {
 }
 ```
 
-## Then?
-
-    $ cat chainytest.go | go run chainytest.go | sort | go run chainytest.go
-
 ## And? 
 
-    minikomi•~» cat test.go | ./test | sort| uniq -c | ./test
+    minikomi•~» cat chainytest.go | go run chainytest | sort | uniq -c | go run chainytest.go
     * - - *       4 * - - * 
     * - - *       1 * - - * )
     * - - *       3 * - - * }
