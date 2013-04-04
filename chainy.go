@@ -28,7 +28,7 @@ func MakeChain(funcs ...func(string) string) {
 		select {
 		case s := <-outCh:
 			io.WriteString(os.Stdout, s)
-    case err := <-final:
+		case err := <-final:
 			if err == io.EOF {
 				return
 			}
