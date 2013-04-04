@@ -1,4 +1,4 @@
-Chainy :link: :link: :link:
+Chainy :link: :link: :link: :neckbeard:
 
 # What?
 
@@ -6,6 +6,10 @@ Chainy :link: :link: :link:
 
 ## How?
    
+   Go get github.com/minikomi/chainy
+
+## Then?
+
    Make this guy:
 
 ### chainytest.go
@@ -13,7 +17,7 @@ Chainy :link: :link: :link:
     package main
 
     import (
-      "chainy"
+      "github.com/minikomi/chainy"
     )
 
     func through(s string) string {
@@ -47,3 +51,5 @@ Chainy :link: :link: :link:
     * - - *       1 * - - * package main
     * - - *       1 * - - *         return "- " + s
     * - - *       1 * - - *         return "* " + s
+
+:bowtie:
