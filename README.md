@@ -1,12 +1,12 @@
-Chainy :link: :link: :link: :neckbeard:
+# Chainy :link: :link: :link: :neckbeard:
 
-# What?
+## What?
 
     os.Stdin ->  func(string) string) -> func(string) string -> .... -> func(string) string -> os.Stdout
 
 ## How?
    
-   Go get github.com/minikomi/chainy
+    $ go get github.com/minikomi/chainy
 
 ## Then?
 
@@ -14,27 +14,29 @@ Chainy :link: :link: :link: :neckbeard:
 
 ### chainytest.go
 
-    package main
+```go
+package main
 
-    import (
-      "github.com/minikomi/chainy"
-    )
+import (
+    "github.com/minikomi/chainy"
+)
 
-    func through(s string) string {
-      return "* " + s
-    }
+func through(s string) string {
+    return "* " + s
+}
 
-    func through2(s string) string {
-      return "- " + s
-    }
+func through2(s string) string {
+    return "- " + s
+}
 
-    func main() {
-      chainy.MakeChain(through, through2, through2, through)
-    }
+func main() {
+    chainy.MakeChain(through, through2, through2, through)
+}
+```
 
 ## Then?
 
-    $ cat .go | go run chainytest.go | sort | go run chainytest.go
+    $ cat chainytest.go | go run chainytest.go | sort | go run chainytest.go
 
 ## And? 
 
@@ -42,7 +44,7 @@ Chainy :link: :link: :link: :neckbeard:
     * - - *       4 * - - * 
     * - - *       1 * - - * )
     * - - *       3 * - - * }
-    * - - *       1 * - - *         "chainy"
+    * - - *       1 * - - *         "github.com/minikomi/chainy"
     * - - *       1 * - - *         chainy.MakeChain(through, through2, through2, through)
     * - - *       1 * - - * func main() {
     * - - *       1 * - - * func through2(s string) string {
